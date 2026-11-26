@@ -34,7 +34,8 @@
     return list;
   }
   function loadPhoto(el) {
-    const src = el.dataset.src;
+    // Use the smaller mobile file when one is given and the screen is narrow
+    const src = el.dataset.srcMobile && window.innerWidth <= 900 ? el.dataset.srcMobile : el.dataset.src;
     const list = candidates(src, el);
     const tryNext = (i) => {
       if (i >= list.length) return;
@@ -42,7 +43,8 @@
       img.decoding = "async";
       if (el.closest(".hero")) img.fetchPriority = "high";
       img.onload = () => {
-        el.style.setProperty("--img", `url("${list[i].url}")`);
+        // Absolute URL: a relative url() inside a CSS variable resolves against css/, not the page
+        el.style.setProperty("--img", `url("${new URL(list[i].url, location.href).href}")`);
         el.classList.add("loaded");
         if (!list[i].own) { el.classList.add("placeholder"); el.dataset.file = src.replace("images/", ""); }
       };
