@@ -26,7 +26,7 @@ window.SITE = {
     "TV Feature Walls",
     "TV Consoles",
     "Shoe Cabinets",
-    "Altar Cabinets",
+    "Custom Cabinets",
     "Vanity Cabinets",
     "Study & Writing Desks",
     "Dressing Tables",
