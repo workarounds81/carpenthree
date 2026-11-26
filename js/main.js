@@ -224,10 +224,19 @@
   });
 
   /* ---------- Carpentry marquee: duplicate the list once for a seamless loop ---------- */
+  // The list comes from SITE.carpentryTypes in js/config.js (falls back to the HTML list).
   const marquee = $("#marquee-list");
-  if (marquee) $$("li", marquee).forEach((li) => {
-    const copy = li.cloneNode(true); copy.setAttribute("aria-hidden", "true"); marquee.appendChild(copy);
-  });
+  if (marquee) {
+    const types = (S.carpentryTypes || []).map((t) => String(t).trim()).filter(Boolean);
+    if (types.length) marquee.innerHTML = types.map((t) => `<li>${esc(t)}</li>`).join("");
+    $$("li", marquee).forEach((li) => {
+      const copy = li.cloneNode(true); copy.setAttribute("aria-hidden", "true"); marquee.appendChild(copy);
+    });
+    const n = $$("li", marquee).length / 2;
+    // Keep a steady reading speed however many items there are (40s ≈ 18 items)
+    const secs = (S.scrollSeconds || 40) * Math.max(n, 4) / 18;
+    marquee.style.animationDuration = `${secs}s`;
+  }
 
   renderCart();
   initPhotos();
