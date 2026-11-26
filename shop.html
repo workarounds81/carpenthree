@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop Furniture | Carpenthree Singapore</title>
+  <meta name="description" content="Shop handcrafted solid-wood furniture from Carpenthree: dining tables, sideboards, beds, desks and storage. Free islandwide delivery on orders over S$1,000.">
+  <link rel="canonical" href="https://carpenthree.com/shop.html">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">C3</span>
+      <span class="logo-text">Carpenthree<small>Carpentry · Furniture</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#approach">Approach</a></li>
+      <li><a href="index.html#workshop">Workshop</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="icon-btn" data-open-cart aria-label="Open cart">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="cart-count"></span>
+      </button>
+      <button class="icon-btn menu-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14M5 12h14M5 16h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero short">
+  <div class="photo dark" data-src="images/shop-hero.jpg"></div>
+  <div class="hero-inner">
+    <h1>The Furniture Shop</h1>
+    <p>Solid wood, made to last · Free delivery over S$1,000</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-toolbar">
+      <div class="filters" id="filters"></div>
+      <select id="sort" aria-label="Sort products" style="width:auto">
+        <option value="featured">Sort: Featured</option>
+        <option value="low">Price: Low to high</option>
+        <option value="high">Price: High to low</option>
+      </select>
+    </div>
+    <div class="products" id="product-grid"></div>
+  </div>
+</section>
+
+<section class="section bg-greige">
+  <div class="container">
+    <div class="benefits">
+      <div class="benefit">
+        <svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
+        <div><h3>Islandwide Delivery</h3><p>Free on orders over S$1,000. Otherwise a flat S$60, with assembly included.</p></div>
+      </div>
+      <div class="benefit">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>
+        <div><h3>Made to Measure</h3><p>Need a different size or finish? Most pieces can be customised. Just WhatsApp us.</p></div>
+      </div>
+      <div class="benefit">
+        <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+        <div><h3>2-Year Warranty</h3><p>Every piece is covered against defects in materials and workmanship.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="logo-mark">C3</span><span class="logo-text">Carpenthree<small>Carpentry · Furniture</small></span></a>
+    <ul class="footer-links">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#approach">Approach</a></li>
+      <li><a href="index.html#workshop">Workshop</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <small>© <span data-site="year"></span> Carpenthree. Singapore.</small>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
