@@ -334,8 +334,8 @@ body.cart-open .wa-float { display: none; }
 .brand-group { display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
 .brand-group:last-of-type { border-bottom: 1px solid var(--line); }
 .brand-group h3 { margin: 0; font-size: .74rem; letter-spacing: .18em; color: var(--muted); }
-.brand-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 44px; }
-.brand-list li { font: 600 1.35rem/1 var(--head); letter-spacing: .1em; text-transform: uppercase; color: var(--charcoal); }
+.brand-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 34px; }
+.brand-list li { font: 600 1.15rem/1 var(--head); letter-spacing: .1em; text-transform: uppercase; color: var(--charcoal); }
 .brand-note { text-align: center; font-size: .72rem; margin: 18px 0 0; }
 @media (max-width: 640px) {
   .brand-group { grid-template-columns: 1fr; gap: 12px; text-align: center; }
