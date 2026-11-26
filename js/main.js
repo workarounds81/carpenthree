@@ -223,6 +223,12 @@
     window.open(waLink(msg), "_blank", "noopener");
   });
 
+  /* ---------- Carpentry marquee: duplicate the list once for a seamless loop ---------- */
+  const marquee = $("#marquee-list");
+  if (marquee) $$("li", marquee).forEach((li) => {
+    const copy = li.cloneNode(true); copy.setAttribute("aria-hidden", "true"); marquee.appendChild(copy);
+  });
+
   renderCart();
   initPhotos();
 })();

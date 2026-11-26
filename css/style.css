@@ -344,3 +344,22 @@ body.cart-open .wa-float { display: none; }
 }
 
 .center { text-align: center; }
+
+/* ---------- Carpentry types marquee ---------- */
+.marquee { background: var(--charcoal); color: #e9e4de; overflow: hidden; padding: 20px 0; }
+.marquee-track {
+  list-style: none; margin: 0; padding: 0; display: flex; width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track li {
+  font: 600 .82rem/1 var(--head); text-transform: uppercase; letter-spacing: .2em; white-space: nowrap;
+  padding: 0 28px; display: flex; align-items: center;
+}
+.marquee-track li::after { content: "•"; margin-left: 56px; color: var(--accent); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (max-width: 640px) { .marquee { padding: 16px 0; } .marquee-track { animation-duration: 30s; } .marquee-track li { font-size: .74rem; padding: 0 18px; } .marquee-track li::after { margin-left: 36px; } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; row-gap: 14px; }
+  .marquee-track li[aria-hidden] { display: none; }
+}
