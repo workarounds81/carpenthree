@@ -11,12 +11,36 @@
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   /* ---------- Photos: hide the label once a real image loads ---------- */
+  // Tries your own file first, then the inspiration placeholders (js/placeholders.js).
+  const PH = window.PLACEHOLDERS || { enabled: false, slots: {} };
+  function candidates(src, small) {
+    const list = [{ url: src, own: true }];
+    const slot = PH.enabled && PH.slots[src];
+    if (slot) {
+      const [id, kw] = slot;
+      const w = small ? 900 : 1800, h = small ? 900 : 1200;
+      if (id) list.push({ url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=70` });
+      const lock = [...src].reduce((a, c) => a + c.charCodeAt(0), 0);
+      if (kw) list.push({ url: `https://loremflickr.com/${w}/${h}/${kw}/all?lock=${lock}` });
+    }
+    return list;
+  }
   function initPhotos(root = document) {
     $$(".photo[data-src]", root).forEach((el) => {
       const src = el.dataset.src;
-      const img = new Image();
-      img.onload = () => { el.style.setProperty("--img", `url("${src}")`); el.classList.add("loaded"); };
-      img.src = src;
+      const list = candidates(src, src.includes("/products/"));
+      const tryNext = (i) => {
+        if (i >= list.length) return;
+        const img = new Image();
+        img.onload = () => {
+          el.style.setProperty("--img", `url("${list[i].url}")`);
+          el.classList.add("loaded");
+          if (!list[i].own) { el.classList.add("placeholder"); el.dataset.file = src.replace("images/", ""); }
+        };
+        img.onerror = () => tryNext(i + 1);
+        img.src = list[i].url;
+      };
+      tryNext(0);
     });
   }
 

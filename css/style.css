@@ -308,3 +308,17 @@ body.cart-open .wa-float { display: none; }
 .footer-company { display: grid; gap: 4px; justify-items: center; padding: 26px 0; margin-bottom: 22px; border-top: 1px solid #514a45; border-bottom: 1px solid #514a45; font-size: .9rem; }
 .footer-company strong { color: #fff; font: 600 .82rem/1.4 var(--head); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 4px; }
 .footer-company a { color: #cfc8c0; }
+
+/* Inspiration placeholder badge (shows which file to replace) */
+.photo.placeholder::before {
+  content: "Placeholder · " attr(data-file);
+  position: absolute; right: 10px; bottom: 10px; z-index: 1;
+  background: rgba(20, 18, 16, .72); color: #fff; padding: 5px 9px;
+  font: 600 .6rem/1 var(--head); letter-spacing: .12em; text-transform: uppercase;
+}
+.hero .photo.placeholder::before { content: ""; inset: 0; right: 0; bottom: 0; padding: 0; background: rgba(25, 22, 20, .45); } /* hero keeps its dark overlay */
+.hero .photo.placeholder + .hero-inner::after {
+  content: "Placeholder photo"; display: block; margin-top: 26px; font: 600 .6rem/1 var(--head);
+  letter-spacing: .16em; text-transform: uppercase; opacity: .6;
+}
+.cart-item .photo.placeholder::before { display: none; }

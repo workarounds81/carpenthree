@@ -12,6 +12,8 @@ It's a static site with no build step, hosted on GitHub Pages.
 | Colours & fonts | top of `css/style.css` |
 
 ## Add photos
+See **IMAGE-BRIEF.md** for a shot list. Until your photos are in, stock placeholders show (switch off in `js/placeholders.js`).
+
 Drop JPGs into `images/` with these names. A slot shows a labelled tone block until its photo exists.
 
 **Home page:** `hero.jpg`, `intro-chair.jpg`, `project-wardrobe.jpg`, `project-kitchen.jpg`,
