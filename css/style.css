@@ -384,3 +384,14 @@ body.cart-open .wa-float { display: none; }
 .wwd-photos .drawing-tile { border: 1px solid var(--line); }
 @media (max-width: 860px) { .wwd.reverse .wwd-photos { order: 0; } }
 .wwd-photos .drawing-cta { left: auto; bottom: auto; right: 12px; top: 12px; } /* keep clear of the overlapping photo */
+
+/* ---------- Brand logo strip ---------- */
+.brand-logos {
+  list-style: none; margin: 40px 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px 56px;
+}
+.brand-logos img { width: auto; display: block; max-width: 100%; }
+@media (max-width: 640px) {
+  .brand-logos { gap: 24px 32px; }
+  .brand-logos img { transform: scale(.85); }
+}
