@@ -406,3 +406,19 @@ body.cart-open .wa-float { display: none; }
 .brand-logos a { display: flex; justify-content: center; align-items: center; padding: 6px; transition: transform .2s, opacity .2s; }
 .brand-logos a:hover { transform: translateY(-2px); opacity: .8; }
 .brand-logos a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* ---------- Footer: contact block + bottom bar ---------- */
+.site-footer { padding-bottom: 0; }
+.footer-contact { color: #cfc8c0; font-size: .9rem; line-height: 1.8; margin: 0 0 40px; }
+.footer-contact a { color: #cfc8c0; }
+.footer-bottom { border-top: 1px solid #514a45; padding: 18px 0; font-size: .78rem; color: #a99f95; }
+.footer-bottom-inner { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; text-align: left; }
+.footer-bottom p { margin: 0; color: inherit; }
+.footer-bottom a { color: #e9e4de; text-decoration: none; border-bottom: 1px solid #6f665e; }
+.footer-bottom a:hover { color: #fff; border-color: #fff; }
+@media (max-width: 640px) {
+  .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+}
+/* Fade the floating Get Quote button out at the very bottom (footer shows WhatsApp anyway) */
+.wa-float { transition: opacity .25s, transform .25s; }
+body.at-footer .wa-float { opacity: 0; pointer-events: none; transform: translateY(12px); }

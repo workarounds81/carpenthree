@@ -244,6 +244,12 @@
     band.addEventListener("click", () => band.classList.toggle("paused"));
   }
 
+  /* ---------- Hide the floating button when the footer's bottom bar is on screen ---------- */
+  const fb = $(".footer-bottom");
+  if (fb && "IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => document.body.classList.toggle("at-footer", e.isIntersecting)).observe(fb);
+  }
+
   renderCart();
   initPhotos();
 })();
