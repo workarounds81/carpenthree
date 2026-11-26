@@ -140,7 +140,7 @@ p { margin: 0 0 1em; color: var(--muted); }
 /* ---------- Intro (image overlaps hero) ---------- */
 .intro .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
 .intro-text { padding: 70px 0 60px; }
-.intro-photo { margin-top: -140px; aspect-ratio: 4/5; position: relative; z-index: 2; }
+.intro-photo { margin-top: -140px; aspect-ratio: 4/3; position: relative; z-index: 2; }
 @media (max-width: 860px) {
   .intro .container { grid-template-columns: 1fr; gap: 0; }
   .intro-photo { margin-top: -60px; order: -1; aspect-ratio: 4/3; }
