@@ -395,3 +395,8 @@ body.cart-open .wa-float { display: none; }
   .brand-logos { gap: 24px 32px; }
   .brand-logos img { transform: scale(.85); }
 }
+/* Even grid for the logo strip: 5 per row on desktop, 3 on tablets, 2 on phones */
+.brand-logos { display: grid; grid-template-columns: repeat(5, 1fr); justify-items: center; align-items: center; gap: 36px 24px; }
+.brand-logos li { display: flex; justify-content: center; align-items: center; min-height: 64px; max-width: 100%; }
+@media (max-width: 860px) { .brand-logos { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px) { .brand-logos { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; } .brand-logos img { transform: scale(.8); } }
