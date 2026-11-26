@@ -305,3 +305,6 @@ body.cart-open .wa-float { display: none; }
 .footer-links a { text-decoration: none; font: 600 .68rem/1 var(--head); text-transform: uppercase; letter-spacing: .18em; }
 .footer-links a:hover { color: #fff; }
 .site-footer small { opacity: .7; }
+.footer-company { display: grid; gap: 4px; justify-items: center; padding: 26px 0; margin-bottom: 22px; border-top: 1px solid #514a45; border-bottom: 1px solid #514a45; font-size: .9rem; }
+.footer-company strong { color: #fff; font: 600 .82rem/1.4 var(--head); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 4px; }
+.footer-company a { color: #cfc8c0; }
