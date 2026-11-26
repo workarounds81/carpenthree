@@ -4,8 +4,8 @@
 window.SITE = {
   name: "Carpenthree",
   // WhatsApp number in international format, digits only (65 = Singapore)
-  whatsapp: "6590000000",           // TODO: replace with your real number
-  phoneDisplay: "+65 9000 0000",    // TODO
+  whatsapp: "6583127675",
+  phoneDisplay: "+65 8312 7675",
   email: "hello@carpenthree.com",   // TODO
   address: "Workshop address, Singapore", // TODO
   currency: "SGD",
