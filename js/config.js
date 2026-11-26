@@ -7,7 +7,7 @@ window.SITE = {
   whatsapp: "6583127675",
   phoneDisplay: "+65 8312 7675",
   email: "info@carpenthree.com",
-  address: "3026 Ubi Rd 1, #03-168, Singapore 408719",
+  address: "6 Gambas Way, #05-10/11/12, Singapore 756939",
   currency: "SGD",
   // Delivery fee rules (SGD)
   freeDeliveryFrom: 1000,
