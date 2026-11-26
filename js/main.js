@@ -238,6 +238,10 @@
     // Keep a steady reading speed however many items there are (40s ≈ 18 items)
     const secs = (S.scrollSeconds || 40) * Math.max(n, 4) / 18;
     marquee.style.animationDuration = `${secs}s`;
+    // Tap or click to pause / resume
+    const band = marquee.closest(".marquee");
+    band.setAttribute("title", "Tap to pause");
+    band.addEventListener("click", () => band.classList.toggle("paused"));
   }
 
   renderCart();
