@@ -422,3 +422,6 @@ body.cart-open .wa-float { display: none; }
 /* Fade the floating Get Quote button out at the very bottom (footer shows WhatsApp anyway) */
 .wa-float { transition: opacity .25s, transform .25s; }
 body.at-footer .wa-float { opacity: 0; pointer-events: none; transform: translateY(12px); }
+
+/* Overlap border matches the section background */
+.bg-paper .wwd-photos .p2 { border-color: var(--paper); }
