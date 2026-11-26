@@ -400,3 +400,8 @@ body.cart-open .wa-float { display: none; }
 .brand-logos li { display: flex; justify-content: center; align-items: center; min-height: 64px; max-width: 100%; }
 @media (max-width: 860px) { .brand-logos { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 520px) { .brand-logos { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; } .brand-logos img { transform: scale(.8); } }
+/* 12 logos: 6 per row on wide screens; logos link to brand sites */
+@media (min-width: 1100px) { .brand-logos { grid-template-columns: repeat(6, 1fr); } }
+.brand-logos a { display: flex; justify-content: center; align-items: center; padding: 6px; transition: transform .2s, opacity .2s; }
+.brand-logos a:hover { transform: translateY(-2px); opacity: .8; }
+.brand-logos a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
