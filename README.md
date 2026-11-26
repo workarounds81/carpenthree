@@ -24,7 +24,7 @@ Drop JPGs into `images/` with these names. A slot shows a labelled tone block un
 Use landscape photos for the hero images, about 2000px wide, and square photos for products, about 1000px. Compress them first (for example with squoosh.app).
 
 ## How orders work
-Customers add items to the cart and tap **Place order via WhatsApp**. That sends you a pre-filled message with the items, totals (including delivery and GST), and their name, mobile and address.
+Customers add items to the cart and tap **Place order via WhatsApp**. That sends you a pre-filled message with the items, totals (including delivery; GST is added only if `gstRate` is set), and their name, mobile and address.
 You then reply with a PayNow QR or a payment link.
 To take card payments directly later, you can add Stripe Payment Links or move the shop to Shopify.
 

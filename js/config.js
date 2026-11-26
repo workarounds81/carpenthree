@@ -12,5 +12,5 @@ window.SITE = {
   // Delivery fee rules (SGD)
   freeDeliveryFrom: 1000,
   deliveryFee: 60,
-  gstRate: 0.09                     // 9% GST — set to 0 if not GST-registered
+  gstRate: 0                        // not GST-registered; set to 0.09 once registered
 };
