@@ -92,7 +92,7 @@ p { margin: 0 0 1em; color: var(--muted); }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-mark {
   width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid currentColor;
-  display: grid; place-items: center; font: 700 1rem/1 var(--head);
+  display: grid; place-items: center; font: 600 1rem/1 var(--head);
 }
 .logo-text { font: 600 .82rem/1.15 var(--head); text-transform: uppercase; letter-spacing: .14em; }
 .logo-text small { display: block; font-size: .58rem; letter-spacing: .2em; opacity: .75; }
@@ -322,3 +322,9 @@ body.cart-open .wa-float { display: none; }
   letter-spacing: .16em; text-transform: uppercase; opacity: .6;
 }
 .cart-item .photo.placeholder::before { display: none; }
+
+/* ---------- Performance ---------- */
+/* Skip rendering work for off-screen sections until they're near the viewport */
+.section, .mosaic, .site-footer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+.photo { transition: none; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }

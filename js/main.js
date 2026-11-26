@@ -13,34 +13,54 @@
   /* ---------- Photos: hide the label once a real image loads ---------- */
   // Tries your own file first, then the inspiration placeholders (js/placeholders.js).
   const PH = window.PLACEHOLDERS || { enabled: false, slots: {} };
-  function candidates(src, small) {
+  // Size requests to the slot on screen (capped at 2x pixel density) so phones get small files.
+  function slotSize(el) {
+    const r = el.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const cw = r.width || 800, ch = r.height || cw * 0.75;
+    const w = Math.min(2000, Math.ceil((cw * dpr) / 200) * 200);
+    return { w, h: Math.round(w * (ch / cw)) };
+  }
+  function candidates(src, el) {
     const list = [{ url: src, own: true }];
     const slot = PH.enabled && PH.slots[src];
     if (slot) {
       const [id, kw] = slot;
-      const w = small ? 900 : 1800, h = small ? 900 : 1200;
-      if (id) list.push({ url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=70` });
+      const { w, h } = slotSize(el);
+      if (id) list.push({ url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=60` });
       const lock = [...src].reduce((a, c) => a + c.charCodeAt(0), 0);
-      if (kw) list.push({ url: `https://loremflickr.com/${w}/${h}/${kw}/all?lock=${lock}` });
+      if (kw) list.push({ url: `https://loremflickr.com/${Math.min(w, 1200)}/${Math.min(h, 1200)}/${kw}/all?lock=${lock}` });
     }
     return list;
   }
-  function initPhotos(root = document) {
-    $$(".photo[data-src]", root).forEach((el) => {
-      const src = el.dataset.src;
-      const list = candidates(src, src.includes("/products/"));
-      const tryNext = (i) => {
-        if (i >= list.length) return;
-        const img = new Image();
-        img.onload = () => {
-          el.style.setProperty("--img", `url("${list[i].url}")`);
-          el.classList.add("loaded");
-          if (!list[i].own) { el.classList.add("placeholder"); el.dataset.file = src.replace("images/", ""); }
-        };
-        img.onerror = () => tryNext(i + 1);
-        img.src = list[i].url;
+  function loadPhoto(el) {
+    const src = el.dataset.src;
+    const list = candidates(src, el);
+    const tryNext = (i) => {
+      if (i >= list.length) return;
+      const img = new Image();
+      img.decoding = "async";
+      if (el.closest(".hero")) img.fetchPriority = "high";
+      img.onload = () => {
+        el.style.setProperty("--img", `url("${list[i].url}")`);
+        el.classList.add("loaded");
+        if (!list[i].own) { el.classList.add("placeholder"); el.dataset.file = src.replace("images/", ""); }
       };
-      tryNext(0);
+      img.onerror = () => tryNext(i + 1);
+      img.src = list[i].url;
+    };
+    tryNext(0);
+  }
+  // Lazy-load: the hero loads immediately; everything else loads shortly before it scrolls into view.
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { io.unobserve(e.target); loadPhoto(e.target); }
+      }), { rootMargin: "400px 0px" })
+    : null;
+  function initPhotos(root = document) {
+    $$(".photo[data-src]:not([data-init])", root).forEach((el) => {
+      el.dataset.init = "1";
+      if (io && !el.closest(".hero")) io.observe(el); else loadPhoto(el);
     });
   }
 
